@@ -89,8 +89,8 @@ for dataset in datasets:
         best_test_mse = 1000
         best_test_ci = 0
         best_epoch = -1
-        model_file_name = 'model_' + model_st + '_' + dataset +  '.model'
-        result_file_name = 'result_validation_' + model_st + '_' + dataset +  '.csv'
+        model_file_name = 'model_' + model_st + '_' + dataset + '.model'
+        result_file_name = 'result_validation_' + model_st + '_' + dataset + '.csv'
         result_full_va = 'result_full_va_' + model_st + '_' + dataset + '.csv'
         for epoch in range(NUM_EPOCHS):
             train(model, device, train_loader, optimizer, epoch + 1)
