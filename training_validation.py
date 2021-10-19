@@ -94,7 +94,7 @@ for dataset in datasets:
         result_full_va = 'result_full_va_' + model_st + '_' + dataset + '.csv'
         for epoch in range(NUM_EPOCHS):
             train(model, device, train_loader, optimizer, epoch + 1)
-            G, P = predicting(model, device, test_loader)
+            G, P = predicting(model, device, valid_loader)
             re = [epoch, mse(G, P), ci(G, P)]
             with open(result_full_va, 'a') as f:
                 f.writelines(','.join(map(str, re)) + '\n')
@@ -112,7 +112,7 @@ for dataset in datasets:
                 ret = [epoch, rmse(G,P),mse(G,P),pearson(G,P),spearman(G,P),ci(G,P)]
                 with open(result_file_name,'a') as f:
                     f.writelines(','.join(map(str,ret))+'\n')
-                best_test_mse = ret[1]
+                best_test_mse = ret[2]
                 best_test_ci = ret[-1]
                 print('rmse improved at epoch ', best_epoch, '; best_test_mse,best_test_ci:', best_test_mse,best_test_ci,model_st,dataset)
             else:
