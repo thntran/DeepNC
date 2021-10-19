@@ -8,7 +8,8 @@
 
 # Running steps in terminal:
 1. Prepare data
-
+*updating
 2. Train a model
-
+*updating
 3. Train a model with validation
+*updating
